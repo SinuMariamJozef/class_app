@@ -53,3 +53,5 @@ List<StockModel> stocks = [
 // flash to usb
 // reboot from usb
 // enjoy enjami
+// 
+// bdnsgfhjdhg
