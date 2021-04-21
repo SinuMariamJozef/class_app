@@ -12,7 +12,24 @@ class _CuttiCardPageState extends State<CuttiCardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.purpleAccent,
+      backgroundColor: widget.model.borderColor,
+      body: Center(
+        child: Card(
+          color: widget.model.iconColor,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Text('${widget.model.name}'),
+                Text('Rs ${widget.model.amount}.00'),
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
