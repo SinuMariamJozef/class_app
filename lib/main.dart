@@ -17,3 +17,5 @@ class MyApp extends StatelessWidget {
 
 // state -> currently available data
 // context -> environment info
+// 
+//https://restcountries.eu/rest/v2/all

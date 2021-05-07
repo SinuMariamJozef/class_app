@@ -12,7 +12,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('width: ${MediaQuery.of(context).size.width},'),),
+      appBar: AppBar(title: Text('widtdfgdfh: ${MediaQuery.of(context).size.width},'),),
       backgroundColor: Colors.green,
 
       // body: GridView.builder(
