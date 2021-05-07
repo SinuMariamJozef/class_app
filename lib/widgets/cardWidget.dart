@@ -1,4 +1,5 @@
 import 'package:class_app/models/stockModel.dart';
+import 'package:class_app/pages/cardPage.dart';
 import 'package:flutter/material.dart';
 
 class CuttiCard extends StatelessWidget {
@@ -13,6 +14,13 @@ class CuttiCard extends StatelessWidget {
       height: mqh * 0.1,
       width: mq * 0.4,
       color: model.borderColor,
+      child: InkWell(
+        onTap: () => Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => CuttiCardPage(model),
+          )
+        ),
+      ),
     );
   }
 }
