@@ -15,12 +15,14 @@ class CountriesNetwork {
 
       var body = jsonDecode(result.body);
       print(body.runtimeType);
+      // todo create a for loop to do the same
       List<Country> countries = List.generate(
           body.length,
           ((index) => Country(
-              name: body[index]['name'], capital: body[index]['capital'])));
+              name: body[index]['name'], flag: body[index]['flag'], capital: body[index]['capital'])));
       return countries;
-    } catch (e) {}
+    } catch (e) {
+    }
   }
 }
 

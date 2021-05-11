@@ -1,6 +1,7 @@
 class Country {
   Country({
     this.name,
+    this.flag,
     this.capital,
   });
 
@@ -10,6 +11,7 @@ class Country {
 
   String name;
   String capital;
+  String flag;
 }
 
 int i = 0;

@@ -12,41 +12,64 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<Country> countries = [];
+  bool networkFailure = false;
+
   @override
   void initState() {
     super.initState();
+
     getCountries();
   }
 
   getCountries() async {
     CountriesNetwork cnwert = CountriesNetwork();
     countries = await cnwert.fetchCountiries();
-    setState(() {
-          
-        });
+    if (countries == null) {
+      countries = [];
+      networkFailure = true;
+    }
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightGreenAccent,
         //title: Text('kk: ${MediaQuery.of(context).size.height},'),
-        title: Text('app name'),
-      ),
-      backgroundColor: Colors.green,
-      body: countries.length == 0
-        ? Center(
-          child: CircularProgressIndicator(),
-        )
-        : GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
+        title: Row(
+          children: [
+            Text('countries',style: TextStyle(color: Colors.lightBlue)),
+            Icon(Icons.flag,color: Colors.lightBlue,),
+          ],
         ),
-        itemCount: countries.length,
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemBuilder: (context, index) => CuttiCard(countries[index]),
       ),
+      backgroundColor: Colors.white,
+      body: countries.length == 0
+          ? Center(
+              child: networkFailure
+                ? Text('Could not access newtuydsgfhjkdgs')
+                : CircularProgressIndicator(),
+            )
+          : Center(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Image.network('https://i.stack.imgur.com/CIrsP.png'),
+                  GridView.builder(
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                      ),
+                      padding: EdgeInsets.all(4),
+                      itemCount: countries.length,
+                      scrollDirection: Axis.vertical,
+                      shrinkWrap: true,
+                      itemBuilder: (context, index) => CuttiCard(countries[index]),
+                    ),
+                ],
+              ),
+            ),
+          ),
     );
   }
 }
@@ -80,3 +103,5 @@ List<StockModel> stocks = [
 // enjoy enjami
 //
 // bdnsgfhjdhg
+
+//https://meet.google.com/ymj-zxbb-qju

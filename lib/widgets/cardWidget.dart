@@ -4,6 +4,7 @@ import 'package:class_app/models/countryModel.dart';
 import 'package:class_app/models/stockModel.dart';
 import 'package:class_app/network/countriesNetwork.dart';
 import 'package:class_app/pages/cardPage.dart';
+import 'package:class_app/services/randomColor.dart';
 import 'package:flutter/material.dart';
 
 class CuttiCard extends StatelessWidget {
@@ -18,7 +19,12 @@ class CuttiCard extends StatelessWidget {
     return Container(
       height: mqh * 0.1,
       width: mq * 0.4,
-      color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+      margin: EdgeInsets.all(4),
+      //color: randomColor(),
+      decoration: BoxDecoration(
+        color: randomColor(),
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: InkWell(
         onTap: () => Navigator.of(context).push(MaterialPageRoute(
           builder: (context) => CuttiCardPage(country),
