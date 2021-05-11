@@ -9,12 +9,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('width: ${MediaQuery.of(context).size.width},'),
+        title: Text('kk: ${MediaQuery.of(context).size.height},'),
       ),
       backgroundColor: Colors.green,
       body: GridView.builder(
@@ -36,10 +35,10 @@ List<StockModel> stocks = [
   StockModel('Turnover', 15000000, Colors.blue, Colors.orange),
   StockModel('dsfsf', 556465, Colors.green, Colors.purple),
   StockModel('f', 1500660000, Colors.orange, Colors.orange),
-  StockModel('Turnover', 15000000, Colors.orange, Colors.orange),
+  StockModel('Turnover', 15000000, Colors.lightGreenAccent, Colors.orange),
   StockModel('fsdf', 1500032000, Colors.orange, Colors.orange),
-  StockModel('Turnover', 15000000, Colors.orange, Colors.orange),
-  StockModel('dsf', 1500230000, Colors.orange, Colors.orange),
+  StockModel('Turnover', 15000000, Colors.pink, Colors.orange),
+  StockModel('dsf', 1500230000, Colors.black, Colors.black),
 ];
 
 // mq 400px

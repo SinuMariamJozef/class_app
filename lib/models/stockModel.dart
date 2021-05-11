@@ -8,21 +8,20 @@ class StockModel {
     this.iconColor,
   );
 
-  changeAmount(int newAmount){
-    amount = newAmount;
-  }
+  //changeAmount(int newAmount){
+  //  amount = newAmount;
+  //}
 
-  isAmountGreaterThan200(){
-    if(amount > 200) return true;
-    else return false;
-  }
+  //isAmountGreaterThan200(){
+  //  if(amount > 200) return true;
+  //  else return false;
+  //}
 
-  getName(){
-    return name;
-  }
-  
-  getName2() => name;
+  //getName(){
+  //  return name;
+  //}
 
+  //getName2() => name;
 
   String name;
   int amount;
