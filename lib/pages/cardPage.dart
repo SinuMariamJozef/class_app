@@ -1,9 +1,12 @@
+import 'dart:math';
+
+import 'package:class_app/models/countryModel.dart';
 import 'package:class_app/models/stockModel.dart';
 import 'package:flutter/material.dart';
 
 class CuttiCardPage extends StatefulWidget {
   CuttiCardPage(this.model);
-  final StockModel model;
+  final Country model;
   @override
   _CuttiCardPageState createState() => _CuttiCardPageState();
 }
@@ -12,10 +15,10 @@ class _CuttiCardPageState extends State<CuttiCardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: widget.model.borderColor,
+      backgroundColor: Colors.primaries[Random().nextInt(Colors.primaries.length)],
       body: Center(
         child: Card(
-          color: widget.model.iconColor,
+          color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
           child: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
@@ -24,7 +27,7 @@ class _CuttiCardPageState extends State<CuttiCardPage> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text('${widget.model.name}'),
-                Text('Rs ${widget.model.amount}.00'),
+                Text('Rs ${widget.model.capital}'),
               ],
             ),
           ),

@@ -1,4 +1,6 @@
+import 'package:class_app/models/countryModel.dart';
 import 'package:class_app/models/stockModel.dart';
+import 'package:class_app/network/countriesNetwork.dart';
 import 'package:class_app/widgets/cardWidget.dart';
 
 import 'package:flutter/material.dart';
@@ -9,21 +11,41 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Country> countries = [];
+  @override
+  void initState() {
+    super.initState();
+    getCountries();
+  }
+
+  getCountries() async {
+    CountriesNetwork cnwert = CountriesNetwork();
+    countries = await cnwert.fetchCountiries();
+    setState(() {
+          
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('kk: ${MediaQuery.of(context).size.height},'),
+        //title: Text('kk: ${MediaQuery.of(context).size.height},'),
+        title: Text('app name'),
       ),
       backgroundColor: Colors.green,
-      body: GridView.builder(
+      body: countries.length == 0
+        ? Center(
+          child: CircularProgressIndicator(),
+        )
+        : GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
         ),
-        itemCount: stocks.length,
+        itemCount: countries.length,
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemBuilder: (context, index) => CuttiCard(stocks[index]),
+        itemBuilder: (context, index) => CuttiCard(countries[index]),
       ),
     );
   }
